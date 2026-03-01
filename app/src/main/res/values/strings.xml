@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Events Manager</string>
+    <string name="title_create_event">Create Event</string>
+    <string name="hint_event_name">Event Name</string>
+    <string name="hint_location">Location</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_start_date">Start Date</string>
+    <string name="hint_end_date">End Date</string>
+    <string name="hint_capacity">Capacity</string>
+    <string name="btn_create_event">Create Event</string>
 </resources>
