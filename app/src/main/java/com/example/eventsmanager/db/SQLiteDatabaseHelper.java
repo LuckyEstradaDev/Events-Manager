@@ -37,7 +37,10 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE users (" +
                 "id TEXT PRIMARY KEY, " +
                 "first_name TEXT, " +
-                "last_name TEXT)");
+                "last_name TEXT, " +
+                "email TEXT, " +
+                "password TEXT, " +
+                "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)");
     }
 
     @Override
