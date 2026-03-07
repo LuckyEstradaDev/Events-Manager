@@ -2,10 +2,12 @@ package com.example.eventsmanager.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.example.eventsmanager.MainActivity;
 import com.example.eventsmanager.models.UserModel;
 
 public class UserService {
@@ -44,6 +46,9 @@ public class UserService {
         Cursor cursor = db.rawQuery(query, selectionArgs);
         if (cursor.moveToFirst()) {
             Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent();
+            intent.setClass(context, MainActivity.class);
+            context.startActivity(intent);
         } else {
             Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show();
         }
