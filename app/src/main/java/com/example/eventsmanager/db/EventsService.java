@@ -2,11 +2,14 @@ package com.example.eventsmanager.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 import com.example.eventsmanager.activities.CreateEventActivity;
 import com.example.eventsmanager.models.EventModel;
+
+import java.util.ArrayList;
 
 public class EventsService {
     Context context;
@@ -37,6 +40,27 @@ public class EventsService {
         } else {
             Toast.makeText(context, "Event created successfully", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public ArrayList<EventModel> getAllEvents() {
+        ArrayList<EventModel> events = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM events", null);
+        while(cursor.moveToNext()) {
+            events.add(new EventModel(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getInt(8),
+                    cursor.getString(9)
+            ));
+        }
+
+        return events;
     }
 
 }
